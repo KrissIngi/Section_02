@@ -12,15 +12,20 @@ string GetGuess();
 bool AskToPlayAgain();
 
 int main(){
-	PrintIntro();
-	PlayGame();
-	AskToPlayAgain();
+	bool bPlayAgain = false;
+	do {
+		PrintIntro();
+		PlayGame();
+		bPlayAgain = AskToPlayAgain();
+	} 
+	while (bPlayAgain);
+
 	return 0;
 }
 
 void PlayGame()
 {
-	// loop for the number of thurns asking for guesses
+	// loop for the number of turns asking for guesses
 	constexpr int NUMBER_OF_TURNS = 5;
 	for (int i = 1; i <= NUMBER_OF_TURNS; i++) {
 		string Guess = GetGuess();
